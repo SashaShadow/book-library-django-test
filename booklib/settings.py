@@ -78,10 +78,21 @@ WSGI_APPLICATION = 'booklib.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'ddmni76qe0299o',
+        'USER': 'vhurtsgewcajii',
+        'PASSWORD': 'a8daa9f4a695389d1c8e92dec98d7e28d01e4eef697e725ac06862b52f1d1d58',
+        'HOST': 'ec2-34-207-12-160.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
