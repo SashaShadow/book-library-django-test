@@ -23,12 +23,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 #SECRET_KEY = 'django-insecure-1d3l(kme45d)4@sj9mot-h4vubdu=d%mq-2wq&0pe(^6bg3ve%'
 
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '1d3l(kme45d)4@sj9mot-h4vubdu=d%mq-2wq&0pe(^6bg3ve%')
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool( os.environ.get('DJANGO_DEBUG', True))
 
-ALLOWED_HOSTS = ['django-booklib-test.herokuapp.com']
+ALLOWED_HOSTS = ['django-booklib-test.herokuapp.com', '127.0.0.1'], 
 
 
 # Application definition
@@ -78,23 +78,23 @@ WSGI_APPLICATION = 'booklib.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+DATABASES = {
+     'default': {
+         'ENGINE': 'django.db.backends.sqlite3',
+         'NAME': BASE_DIR / 'db.sqlite3',
+     }
+ }
+
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'ddmni76qe0299o',
+#         'USER': 'vhurtsgewcajii',
+#         'PASSWORD': 'a8daa9f4a695389d1c8e92dec98d7e28d01e4eef697e725ac06862b52f1d1d58',
+#         'HOST': 'ec2-34-207-12-160.compute-1.amazonaws.com',
+#         'PORT': '5432',
 #     }
 # }
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'ddmni76qe0299o',
-        'USER': 'vhurtsgewcajii',
-        'PASSWORD': 'a8daa9f4a695389d1c8e92dec98d7e28d01e4eef697e725ac06862b52f1d1d58',
-        'HOST': 'ec2-34-207-12-160.compute-1.amazonaws.com',
-        'PORT': '5432',
-    }
-}
 
 
 # Password validation
