@@ -1,1 +1,1 @@
-web: gunicorn booklib.wsgi --log-file -
+web: gunicorn booklib.wsgi --log-file - --log-level debug
